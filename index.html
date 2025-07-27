@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio de Francis Nascimento, Desenvolvedor de Software em Formação">
+  <title>Francis Nascimento - Portfólio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: #000;
+      color: #0f0;
+      font-family: 'Courier New', monospace;
+      overflow-x: hidden;
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      opacity: 0.5;
+    }
+    section {
+      position: relative;
+      z-index: 1;
+    }
+    .glow {
+      text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
+    }
+    .nav-link:hover {
+      text-shadow: 0 0 5px #0f0;
+    }
+    .btn-glow {
+      background: transparent;
+      border: 2px solid #0f0;
+      color: #0f0;
+      transition: all 0.3s ease;
+    }
+    .btn-glow:hover {
+      background: #0f0;
+      color: #000;
+      box-shadow: 0 0 15px #0f0;
+    }
+    .icon-glow {
+      transition: all 0.3s ease;
+    }
+    .icon-glow:hover {
+      filter: drop-shadow(0 0 10px #0f0);
+    }
+    /* Mobile adjustments */
+    @media (max-width: 640px) {
+      canvas {
+        opacity: 0.3;
+      }
+      .nav-links {
+        display: none;
+      }
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        background: #000;
+        padding: 1rem;
+      }
+      .hamburger {
+        display: block;
+      }
+      .btn-glow {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+      }
+    }
+    @media (min-width: 641px) {
+      .hamburger {
+        display: none;
+      }
+      .nav-links {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Matrix Rain Effect -->
+  <canvas id="matrix"></canvas>
+
+  <!-- Navbar -->
+  <nav class="bg-black bg-opacity-80 p-4 fixed w-full top-0 z-10">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-xl sm:text-2xl font-bold glow">Francis Nascimento</h1>
+      <button class="hamburger text-green-500 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+      <ul class="nav-links flex space-x-6">
+        <li><a href="#sobre" class="nav-link">Sobre</a></li>
+        <li><a href="#projetos" class="nav-link">Projetos</a></li>
+        <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+        <li><a href="#contato" class="nav-link">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="sobre" class="min-h-screen flex items-center justify-center pt-16">
+    <div class="container mx-auto text-center px-4">
+      <h2 class="text-3xl sm:text-5xl font-bold glow mb-4">Francis Nascimento</h2>
+      <h3 class="text-xl sm:text-2xl mb-4">Desenvolvedor de Software em Formação 🚀</h3>
+      <p class="text-base sm:text-lg mb-6">Técnico em Mecatrônica apaixonado por tecnologia, cursando o 3º período de Análise e Desenvolvimento de Sistemas.</p>
+      <a href="#projetos" class="btn-glow px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold">Explore meus projetos</a>
+    </div>
+  </section>
+
+  <!-- Sobre Section -->
+  <section id="sobre-detalhes" class="py-12">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center glow mb-8">Sobre Mim</h2>
+      <p class="text-base sm:text-lg mb-4">Sou técnico em Mecatrônica apaixonado por tecnologia, atualmente em transição de carreira e cursando o 2º período de Análise e Desenvolvimento de Sistemas. Estou em busca da minha primeira oportunidade de estágio para aplicar na prática os conhecimentos adquiridos nos cursos e projetos que venho desenvolvendo.</p>
+      <p class="text-base sm:text-lg mb-4">Tenho forte interesse em desenvolvimento Back-End, mas também estou ampliando meus horizontes com tecnologias Front-End. Gosto de aprender constantemente e estou sempre explorando novas ferramentas e boas práticas.</p>
+      <p class="text-base sm:text-lg font-semibold">🎓 Formado em Desenvolvimento Back-End pelo SENAI</p>
+分组
+      <p class="text-base sm:text-lg">📚 Estudando Front-End (HTML, CSS, JavaScript)</p>
+      <p class="text-base sm:text-lg">📚 Aprofundando no Back-End com Java, Spring Boot, Python, MySQL e MongoDB</p>
+      <p class="text-base sm:text-lg">💡 Explorando boas práticas com Git, GitHub e APIs REST</p>
+    </div>
+  </section>
+
+  <!-- Projetos Section -->
+  <section id="projetos" class="py-12">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center glow mb-8">Projetos em Destaque</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Projeto 1 -->
+        <div class="bg-black bg-opacity-70 p-2 sm:p-3 rounded-lg border-[0.5px] border-green-500 text-center">
+          <a href="https://github.com/FrancisNascimentoDev/O.S-fiocruz-">
+            <img src="https://raw.githubusercontent.com/FrancisNascimentoDev/Ponto_Eletronico_API/refs/heads/main/img/Ponto_Eletronico_API.jpg" alt="API de Ponto Eletrônico" class="w-full h-auto rounded-lg mb-4">
+          </a>
+          <h3 class="text-lg sm:text-xl font-semibold glow mb-2">API de Ponto Eletrônico</h3>
+          <p class="text-sm sm:text-base mb-4">Uma API para gerenciamento de ponto eletrônico, desenvolvida com [tecnologias usadas, Java, Spring Boot].</p>
+          <a href="https://github.com/FrancisNascimentoDev/O.S-fiocruz-" class="text-green-500 hover:underline">Ver Projeto</a>
+        </div>
+        <!-- Projeto 2 -->
+        <div class="bg-black bg-opacity-70 p-2 sm:p-3 rounded-lg border-[0.5px] border-green-500 text-center">
+          <a href="https://github.com/FrancisNascimentoDev/ClimaTempo">
+            <img src="https://live.staticflickr.com/65535/54682104592_9419bf9158_n.jpg" alt="Clima Tempo" class="w-full h-auto rounded-lg mb-4">
+          </a>
+          <h3 class="text-lg sm:text-xl font-semibold glow mb-2">Clima Tempo</h3>
+          <p class="text-sm sm:text-base mb-4">Aplicação para consulta de condições climáticas, utilizando [tecnologias usadas,  JavaScript, APIs e Python].</p>
+          <a href="https://github.com/FrancisNascimentoDev/ClimaTempo" class="text-green-500 hover:underline">Ver Projeto</a>
+        </div>
+        <!-- Projeto 3 -->
+        <div class="bg-black bg-opacity-70 p-2 sm:p-3 rounded-lg border-[0.5px] border-green-500 text-center">
+          <a href="https://github.com/FrancisNascimentoDev/O.S-fiocruz">
+            <img src="https://live.staticflickr.com/65535/54683094818_02f620bfe9_n.jpg" alt="Gerador de Ordem de Serviço" class="w-full h-auto rounded-lg mb-4">
+          </a>
+          <h3 class="text-lg sm:text-xl font-semibold glow mb-2">Gerador de Ordem de Serviço</h3>
+          <p class="text-sm sm:text-base mb-4">Sistema para geração de ordens de serviço, desenvolvido com [tecnologias usadas,JavaScript, HTML, CSS].</p>
+          <a href="https://github.com/FrancisNascimentoDev/O.S-fiocruz-" class="text-green-500 hover:underline">Ver Projeto</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Habilidades Section -->
+  <section id="habilidades" class="py-12">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl font-bold text-center glow mb-8">Habilidades</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="text-center p-3 sm:p-4 bg-black bg-opacity-70 rounded-lg border-[0.2px] border-green-500">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="48" alt="java logo" class="mx-auto mb-2 icon-glow w-10 h-10 sm:w-12 sm:h-12">
+          <p class="font-semibold text-sm sm:text-base">Java</p>
+        </div>
+        <div class="text-center p-3 sm:p-4 bg-black bg-opacity-70 rounded-lg border-[0.5px] border-green-500">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="48" alt="python logo" class="mx-auto mb-2 icon-glow w-10 h-10 sm:w-12 sm:h-12">
+          <p class="font-semibold text-sm sm:text-base">Python</p>
+        </div>
+        <div class="text-center p-3 sm:p-4 bg-black bg-opacity-70 rounded-lg border-[0.5px] border-green-500">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="48" alt="javascript logo" class="mx-auto mb-2 icon-glow w-10 h-10 sm:w-12 sm:h-12">
+          <p class="font-semibold text-sm sm:text-base">JavaScript</p>
+        </div>
+        <div class="text-center p-3 sm:p-4 bg-black bg-opacity-70 rounded-lg border-[0.5px] border-green-500">
+          <img src="https://cdn.simpleicons.org/html5/E34F26" height="48" alt="html5 logo" class="mx-auto mb-2 icon-glow w-10 h-10 sm:w-12 sm:h-12">
+          <p class="font-semibold text-sm sm:text-base">HTML</p>
+        </div>
+        <div class="text-center p-3 sm:p-4 bg-black bg-opacity-70 rounded-lg border-[0.5px] border-green-500">
+          <img src="https://skillicons.dev/icons?i=css" height="48" alt="css3 logo" class="mx-auto mb-2 icon-glow w-10 h-10 sm:w-12 sm:h-12">
+          <p class="font-semibold text-sm sm:text-base">CSS</p>
+        </div>
+        <div class="text-center p-3 sm:p-4 bg-black bg-opacity-70 rounded-lg border-[0.5px] border-green-500">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="48" alt="typescript logo" class="mx-auto mb-2 icon-glow w-10 h-10 sm:w-12 sm:h-12">
+          <p class="font-semibold text-sm sm:text-base">TypeScript</p>
+        </div>
+      </div>
+      <h3 class="text-xl sm:text-2xl font-bold text-center glow mt-8 mb-4">Sistemas Operacionais</h3>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="text-center p-3 sm:p-4 bg-black bg-opacity-70 rounded-lg border-[0.5px] border-green-500">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" height="48" alt="Windows" class="mx-auto mb-2 icon-glow w-10 h-10 sm:w-12 sm:h-12">
+          <p class="font-semibold text-sm sm:text-base">Windows</p>
+        </div>
+        <div class="text-center p-3 sm:p-4 bg-black bg-opacity-70 rounded-lg border-[0.5px] border-green-500">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" height="48" alt="Linux" class="mx-auto mb-2 icon-glow w-10 h-10 sm:w-12 sm:h-12">
+          <p class="font-semibold text-sm sm:text-base">Linux</p>
+        </div>
+      </div>
+      <h3 class="text-xl sm:text-2xl font-bold text-center glow mt-8 mb-4">Plataformas de Desenvolvimento Embarcado</h3>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="text-center p-3 sm:p-4 bg-black bg-opacity-70 rounded-lg border-[0.5px] border-green-500">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg" height="48" alt="raspberrypi logo" class="mx-auto mb-2 icon-glow w-10 h-10 sm:w-12 sm:h-12">
+          <p class="font-semibold text-sm sm:text-base">Raspberry Pi</p>
+        </div>
+        <div class="text-center p-3 sm:p-4 bg-black bg-opacity-70 rounded-lg border-[0.5px] border-green-500">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" height="48" alt="arduino logo" class="mx-auto mb-2 icon-glow w-10 h-10 sm:w-12 sm:h-12">
+          <p class="font-semibold text-sm sm:text-base">Arduino</p>
+        </div>
+      </div>
+      <h3 class="text-xl sm:text-2xl font-bold text-center glow mt-8 mb-4">Ferramentas de Desenvolvimento</h3>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="text-center p-3 sm:p-4 bg-black bg-opacity-70 rounded-lg border-[0.5px] border-green-500">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height="48" alt="VS Code" class="mx-auto mb-2 icon-glow w-10 h-10 sm:w-12 sm:h-12">
+          <p class="font-semibold text-sm sm:text-base">VS Code</p>
+        </div>
+        <div class="text-center p-3 sm:p-4 bg-black bg-opacity-70 rounded-lg border-[0.5px] border-green-500">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eclipse/eclipse-original.svg" height="48" alt="Eclipse" class="mx-auto mb-2 icon-glow w-10 h-10 sm:w-12 sm:h-12">
+          <p class="font-semibold text-sm sm:text-base">Eclipse</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GitHub Stats Section -->
+  <section id="stats" class="py-12">
+    <div class="container mx-auto text-center px-4">
+      <h2 class="text-2xl sm:text-3xl font-bold glow mb-8">GitHub Stats</h2>
+      <div class="flex flex-col md:flex-row justify-center gap-4">
+        <img src="https://github-readme-stats.vercel.app/api?username=FrancisNascimentoDev&show_icons=true&theme=dark" alt="GitHub Stats" class="max-w-full h-auto">
+        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=FrancisNascimentoDev&layout=compact&theme=dark" alt="Top Languages" class="max-w-full h-auto">
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato Section -->
+  <section id="contato" class="py-12">
+    <div class="container mx-auto text-center px-4">
+      <h2 class="text-2xl sm:text-3xl font-bold glow mb-8">Conecte-se Comigo</h2>
+      <p class="text-base sm:text-lg mb-4">Quer colaborar ou saber mais? Entre em contato!</p>
+      <div class="flex justify-center gap-4">
+        <a href="https://www.linkedin.com/in/francisnascimento" target="_blank">
+          <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/linkedin/default.svg" width="48" height="48" alt="LinkedIn" class="icon-glow w-10 h-10 sm:w-12 sm:h-12">
+        </a>
+        <a href="https://instagram.com/francis.do.nascimento" target="_blank">
+          <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/instagram/default.svg" width="48" height="48" alt="Instagram" class="icon-glow w-10 h-10 sm:w-12 sm:h-12">
+        </a>
+        <a href="https://t.me/NascimentFrancis" target="_blank">
+          <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/telegram/default.svg" width="48" height="48" alt="Telegram" class="icon-glow w-10 h-10 sm:w-12 sm:h-12">
+        </a>
+      </div>
+      <p class="mt-4 text-base sm:text-lg">Email: <a href="mailto:francisn.dev@gmail.com" class="underline">francisn.dev@gmail.com</a></p>
+      <p class="text-base sm:text-lg">GitHub: <a href="https://github.com/FrancisNascimentoDev" class="underline">FrancisNascimentoDev</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black bg-opacity-80 text-center p-4">
+    <p class="text-base sm:text-lg mb-2">🧠 <em>"Aprender nunca é demais. Cada linha de código é uma chance de fazer melhor."</em> – Francis Nascimento</p>
+    <p class="text-base sm:text-lg">&copy; 2025 Francis Nascimento.</p>
+  </footer>
+
+  <script>
+    // Matrix Rain Effect
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+    const chars = '01';
+    const fontSize = window.innerWidth <= 640 ? 12 : 14;
+    const columns = canvas.width / fontSize;
+    const drops = [];
+    for (let x = 0; x < columns; x++) drops[x] = 1;
+    function draw() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#0F0';
+      ctx.font = fontSize + 'px monospace';
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars.charAt(Math.floor(Math.random() * chars.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+    }
+    setInterval(draw, 33);
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Resize Canvas on Window Resize
+    window.addEventListener('resize', () => {
+      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+      const newFontSize = window.innerWidth <= 640 ? 12 : 14;
+      if (newFontSize !== fontSize) {
+        location.reload(); // Reload to adjust matrix effect
+      }
+    });
+
+    // Hamburger Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
